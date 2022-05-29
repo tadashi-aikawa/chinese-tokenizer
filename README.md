@@ -1,3 +1,5 @@
+# **This repository is forked from [yishn/chinese-tokenizer](https://github.com/yishn/chinese-tokenizer). The difference with the original does not depend on Node.js.**
+
 # chinese-tokenizer [![Build Status](https://travis-ci.org/yishn/chinese-tokenizer.svg?branch=master)](https://travis-ci.org/yishn/chinese-tokenizer)
 
 Simple algorithm to tokenize Chinese texts into words using [CC-CEDICT](https://cc-cedict.org/). You can try it out at [the demo page](https://yishn.github.io/chinese-tokenizer/). The code for the demo page can be found in the [`gh-pages` branch](https://github.com/yishn/chinese-tokenizer/tree/gh-pages) of this repository.
@@ -19,7 +21,7 @@ npm install chinese-tokenizer --save
 Make sure to provide the [CC-CEDICT](https://cc-cedict.org/) data.
 
 ~~~js
-const tokenize = require('chinese-tokenizer').loadFile('./cedict_ts.u8')
+const tokenize = require('chinese-tokenizer').load(readFileSync('./cedict_ts.u8', 'utf-8'))
 
 console.log(JSON.stringify(tokenize('我是中国人。'), null, '  '))
 console.log(JSON.stringify(tokenize('我是中國人。'), null, '  '))
@@ -79,10 +81,6 @@ Output:
 ~~~
 
 ## API
-
-### `chineseTokenizer.loadFile(path)`
-
-Reads the [CC-CEDICT](https://cc-cedict.org/) file from given `path` and returns a tokenize function based on the dictionary.
 
 ### `chineseTokenizer.load(content)`
 
